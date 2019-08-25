@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{868EC833-AF78-402F-9E7B-ACA5E6AA5EBC}</ProjectGuid>
+    <ProjectGuid>{0327636D-2BB8-41E6-8DC4-BC067B4F23C1}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>SnakeGame</RootNamespace>
     <AssemblyName>SnakeGame</AssemblyName>
@@ -97,6 +97,11 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="cry.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

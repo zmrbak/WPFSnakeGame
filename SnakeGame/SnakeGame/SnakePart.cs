@@ -9,8 +9,8 @@ namespace SnakeGame
 {
     public class SnakePart
     {
-        public UIElement UiElement { get; set; }
-        public Point Position { get; set; }
-        public bool IsHead { get; set; }
+        public UIElement UiElement { set; get; }
+        public Point Position { set; get; }
+        public Boolean IsHead { set; get; }
     }
 }

@@ -4,68 +4,72 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SnakeGame"
-        xmlns:scm="clr-namespace:System.ComponentModel;assembly=WindowsBase"
         mc:Ignorable="d"
-        Title="SnakeWPF - Score: 0" SizeToContent="WidthAndHeight"
-        KeyUp="Window_KeyUp"
-        ContentRendered="Window_ContentRendered"
-        ResizeMode="NoResize"
-        WindowStyle="None"
-        x:Name="window"
-        MouseLeftButtonDown="Window_MouseLeftButtonDown"   
+        Title="WPF 贪吃蛇：0"
+        SizeToContent="WidthAndHeight"
+        Loaded="Window_Loaded"
+        ContentRendered="Window_ContentRendered" KeyUp="Window_KeyUp" WindowStyle="None" ResizeMode="NoResize" MouseLeftButtonDown="Window_MouseLeftButtonDown"
         >
-    <Window.Resources>
-        <CollectionViewSource Source="{Binding ElementName=window, Path=HighscoreList}" x:Key="HighScoreListViewSource">
-            <CollectionViewSource.SortDescriptions>
-                <scm:SortDescription Direction="Descending" PropertyName="Score" />
-            </CollectionViewSource.SortDescriptions>
-        </CollectionViewSource>
-    </Window.Resources>
     <DockPanel Background="Black">
         <Grid DockPanel.Dock="Top" Name="pnlTitleBar">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="Auto" />
-                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
-
             <Grid.Resources>
                 <Style TargetType="TextBlock">
-                    <Setter Property="FontFamily" Value="Consolas" />
-                    <Setter Property="Foreground" Value="White" />
-                    <Setter Property="FontSize" Value="24" />
-                    <Setter Property="FontWeight" Value="Bold" />
+                    <Setter Property="FontFamily" Value="Consolas"/>
+                    <Setter Property="Foreground" Value="White"/>
+                    <Setter Property="FontSize" Value="24"/>
+                    <Setter Property="FontWeight" Value="Bold"/>
                 </Style>
+                <Style TargetType="Button">
+                    <Setter Property="Background" Value="Transparent"/>
+                    <Setter Property="Foreground" Value="White"/>
+                    <Setter Property="FontWeight" Value="Bold"/>
+                    <Setter Property="FontSize" Value="20"/>
+                    <Setter Property="BorderThickness" Value="0"/>
+                    <Setter Property="Padding" Value="10,0"/>
+                </Style>
+                
             </Grid.Resources>
-
             <WrapPanel Margin="10,0,0,0">
                 <TextBlock>Score:</TextBlock>
-                <TextBlock Name="tbStatusScore">0</TextBlock>
+                <TextBlock x:Name="tbStatusScore">0</TextBlock>
             </WrapPanel>
             <WrapPanel Grid.Column="1">
                 <TextBlock>Speed:</TextBlock>
-                <TextBlock Name="tbStatusSpeed">0</TextBlock>
+                <TextBlock x:Name="tbStatusSpeed">0</TextBlock>
             </WrapPanel>
-            <Button Grid.Column="2"  Background="Transparent" Foreground="White" FontWeight="Bold" FontSize="20" BorderThickness="0" Name="btnPause" Click="BtnPause_Click" Padding="10,0" Focusable="False">II</Button>
-            <Button Grid.Column="3"  Background="Transparent" Foreground="White" FontWeight="Bold" FontSize="20" BorderThickness="0" Name="btnClose" Click="BtnClose_Click" Padding="10,0" Focusable="False">X</Button>
+            <Button Focusable="False" Visibility="Hidden" x:Name="btPause"  Grid.Column="2" Content="II" Background="Transparent" Click="BtPause_Click"/>
+            <Button  Grid.Column="3" Content="X" Background="Transparent" Click="Button_Click"/>
         </Grid>
-        <Border BorderBrush="Black" BorderThickness="5">
-            <Canvas Name="GameArea" ClipToBounds="True" Width="400" Height="400">
-                <Border BorderBrush="Silver" BorderThickness="2" Width="300" Height="300" Canvas.Left="50" Canvas.Top="50" Name="bdrWelcomeMessage" Panel.ZIndex="1">
-                    <StackPanel Orientation="Vertical" Background="AliceBlue">
-                        <TextBlock FontWeight="Bold" FontSize="50" HorizontalAlignment="Center" Margin="0,20,0,0">WPF贪吃蛇</TextBlock>
-                        <TextBlock TextWrapping="Wrap" Margin="20" FontSize="16">用方向键来控制绿色蛇去吃红色的苹果。请注意，不要撞到墙壁，也不要撞到自己的尾巴，一旦撞到，游戏结束！</TextBlock>
-                        <TextBlock FontWeight="Bold" HorizontalAlignment="Center" FontSize="24" Foreground="Maroon">按空格键开始游戏</TextBlock>
+        <Border BorderThickness="5" BorderBrush="Black">
+            <Canvas x:Name="GameArea" ClipToBounds="True" Width="400" Height="400">
+                <Border Visibility="Collapsed" Panel.ZIndex="1" x:Name="bdrWelcomeMessage" Width="300" Height="300" BorderThickness="2" BorderBrush="Silver" Canvas.Left="50" Canvas.Top="50">
+                    <StackPanel Background="AliceBlue">
+                        <TextBlock Text="WPF贪吃蛇" FontSize="50" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,20,0,0"/>
+                        <TextBlock FontWeight="Bold" TextWrapping="Wrap" FontSize="16" Margin="20" Text="用方向键来控制绿色蛇去吃红色的苹果。请注意，不要撞到墙壁，也不要撞到自己的身体，一旦撞到，则游戏结束！"/>
+                        <TextBlock Text="按空格键开始游戏" FontSize="24" Foreground="Maroon" HorizontalAlignment="Center" FontWeight="Bold"/>
                         <Button Margin="20" Name="btnShowHighscoreList" Click="BtnShowHighscoreList_Click" HorizontalAlignment="Center" Padding="10,3">显示高分榜</Button>
+                    </StackPanel> 
+                </Border>
+                <Border Visibility="Collapsed" Panel.ZIndex="1" x:Name="bdrEndOfGame" Width="300" Height="300" BorderThickness="2" BorderBrush="Silver" Canvas.Left="50" Canvas.Top="50">
+                    <StackPanel Background="AliceBlue">
+                        <TextBlock Text="OH NO!" FontSize="40" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,20,0,0"/>
+                        <TextBlock FontWeight="Bold" TextWrapping="Wrap" FontSize="26" Margin="20" Text="...你的蛇，死了！" HorizontalAlignment="Center"/>
+                        <TextBlock x:Name="tbFinalScore" HorizontalAlignment="Center" Margin="0,0,0,20" FontSize="48">0</TextBlock>
+                        <TextBlock Text="按空格键开始游戏" FontSize="24" Foreground="Maroon" HorizontalAlignment="Center" FontWeight="Bold"/>
                     </StackPanel>
                 </Border>
-                <Border BorderBrush="Silver" BorderThickness="2" Width="300" Height="300" Canvas.Left="50" Canvas.Top="50" Name="bdrHighscoreList" Panel.ZIndex="1" Visibility="Collapsed">
+                <Border Visibility="Collapsed" BorderBrush="Silver" BorderThickness="2" Width="300" Height="300" Canvas.Left="50" Canvas.Top="50" Name="bdrHighscoreList" Panel.ZIndex="1">
                     <StackPanel Orientation="Vertical" Background="AliceBlue" >
                         <Border BorderThickness="0,0,0,2" BorderBrush="Silver" Margin="0,10">
                             <TextBlock HorizontalAlignment="Center" FontSize="34" FontWeight="Bold">高分榜</TextBlock>
                         </Border>
-                        <ItemsControl ItemsSource="{Binding Source={StaticResource HighScoreListViewSource}}">
+                        <ItemsControl x:Name="bdrHighscoreListItems">
                             <ItemsControl.ItemTemplate>
                                 <DataTemplate>
                                     <DockPanel Margin="5">
@@ -78,23 +82,13 @@
                         <TextBlock FontWeight="Bold" HorizontalAlignment="Center" FontSize="24" Foreground="Maroon">按空格键开始游戏</TextBlock>
                     </StackPanel>
                 </Border>
-                <Border BorderBrush="Silver" BorderThickness="2" Width="300" Height="300" Canvas.Left="50" Canvas.Top="50" Name="bdrNewHighscore" Panel.ZIndex="1" Visibility="Collapsed">
+                <Border Visibility="Collapsed" BorderBrush="Silver" BorderThickness="2" Width="300" Height="300" Canvas.Left="50" Canvas.Top="50" Name="bdrNewHighscore" Panel.ZIndex="1" >
                     <StackPanel Orientation="Vertical" Background="AliceBlue">
                         <TextBlock HorizontalAlignment="Center" FontSize="34" FontWeight="Bold" Margin="20">新高分</TextBlock>
-                        <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" FontSize="16"> 恭喜你，进入了高分棒！请在下面输入你的名字...
+                        <TextBlock Margin="20" HorizontalAlignment="Center" TextWrapping="Wrap" FontSize="16"> 恭喜你，进入了高分榜！请在下面输入你的名字...
                         </TextBlock>
                         <TextBox Name="txtPlayerName" FontSize="28" FontWeight="Bold" MaxLength="8" Margin="20" HorizontalContentAlignment="Center"></TextBox>
-                        <Button Name="btnAddToHighscoreList" FontSize="16" HorizontalAlignment="Center" Click="BtnAddToHighscoreList_Click" Padding="10,5">加入高分榜</Button>
-                    </StackPanel>
-                </Border>
-                <Border BorderBrush="Silver" BorderThickness="2" Width="300" Height="300" Canvas.Left="50" Canvas.Top="50" Name="bdrEndOfGame" Panel.ZIndex="1" Visibility="Collapsed">
-                    <StackPanel Orientation="Vertical" Background="AliceBlue">
-                        <TextBlock HorizontalAlignment="Center" FontSize="40" FontWeight="Bold" Margin="0,20,0,0">Game Over!</TextBlock>
-                        <TextBlock HorizontalAlignment="Center" FontSize="20" FontWeight="Bold"></TextBlock>
-                        <TextBlock Margin="20" TextAlignment="Center" FontSize="16">你的成绩是:</TextBlock>
-                        <TextBlock Name="tbFinalScore" TextAlignment="Center" FontSize="48" FontWeight="Bold" Foreground="Maroon">0</TextBlock>
-                        <TextBlock FontWeight="Bold" HorizontalAlignment="Center" FontSize="24" Foreground="Maroon">按空格键开始游戏</TextBlock>
-                        <Button Margin="20" Click="BtnShowHighscoreList_Click" HorizontalAlignment="Center" Padding="10,3">显示高分榜</Button>
+                        <Button Focusable="False" Name="btnAddToHighscoreList" FontSize="16" HorizontalAlignment="Center" Click="BtnAddToHighscoreList_Click" Padding="10,5">加入高分榜</Button>
                     </StackPanel>
                 </Border>
             </Canvas>
