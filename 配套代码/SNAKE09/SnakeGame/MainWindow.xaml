@@ -1,0 +1,54 @@
+﻿<Window x:Class="SnakeGame.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SnakeGame"
+        mc:Ignorable="d"
+        Title="WPF 贪吃蛇：0"
+        SizeToContent="WidthAndHeight"
+        ContentRendered="Window_ContentRendered" KeyUp="Window_KeyUp" WindowStyle="None" ResizeMode="NoResize" MouseLeftButtonDown="Window_MouseLeftButtonDown"
+        >
+    <DockPanel Background="Black">
+        <Grid DockPanel.Dock="Top" Name="pnlTitleBar">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.Resources>
+                <Style TargetType="TextBlock">
+                    <Setter Property="FontFamily" Value="Consolas"/>
+                    <Setter Property="Foreground" Value="White"/>
+                    <Setter Property="FontSize" Value="24"/>
+                    <Setter Property="FontWeight" Value="Bold"/>
+                </Style>
+                <Style TargetType="Button">
+                    <Setter Property="Background" Value="Transparent"/>
+                    <Setter Property="Foreground" Value="White"/>
+                    <Setter Property="FontWeight" Value="Bold"/>
+                    <Setter Property="FontSize" Value="20"/>
+                    <Setter Property="BorderThickness" Value="0"/>
+                    <Setter Property="Padding" Value="10,0"/>
+                </Style>
+                
+            </Grid.Resources>
+            <WrapPanel Margin="10,0,0,0">
+                <TextBlock>Score:</TextBlock>
+                <TextBlock x:Name="tbStatusScore">0</TextBlock>
+            </WrapPanel>
+            <WrapPanel Grid.Column="1">
+                <TextBlock>Speed:</TextBlock>
+                <TextBlock x:Name="tbStatusSpeed">0</TextBlock>
+            </WrapPanel>
+            <Button Focusable="False" Visibility="Hidden" x:Name="btPause"  Grid.Column="2" Content="II" Background="Transparent" Click="BtPause_Click"/>
+            <Button  Grid.Column="3" Content="X" Background="Transparent" Click="Button_Click"/>
+        </Grid>
+        <Border BorderThickness="5" BorderBrush="Black">
+            <Canvas x:Name="GameArea" ClipToBounds="True" Width="400" Height="400">
+
+            </Canvas>
+        </Border>
+    </DockPanel>
+</Window>
