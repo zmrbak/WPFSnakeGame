@@ -1,10 +1,11 @@
 # 云课堂《WPF经典编程实例》示例代码
 
-网易云课堂：<a href="http://t.cn/Ai8SxMCL">http://t.cn/Ai8SxMCL</a> 
-CSDN：<a href="https://edu.csdn.net/course/detail/25228">https://edu.csdn.net/course/detail/25228</a>
-51CTO：<a hre4f="https://edu.51cto.com/sd/fe283">https://edu.51cto.com/sd/fe283</a> 
-腾讯课堂：<a href="https://ke.qq.com/course/437844?tuin=1405e4a">https://ke.qq.com/course/437844?tuin=1405e4a</a>
-淘宝教育：<a href="http://i.xue.taobao.com/detail.htm?spm=a2174.7765247.0.0.fu0bmj&courseId=114160">http://i.xue.taobao.com/detail.htm?spm=a2174.7765247.0.0.fu0bmj&courseId=114160</a>
+网易云课堂：<a href="http://t.cn/Ai8SxMCL">http://t.cn/Ai8SxMCL</a> <br/>
+CSDN：<a href="https://edu.csdn.net/course/detail/25228">https://edu.csdn.net/course/detail/25228</a><br/>
+51CTO：<a hre4f="https://edu.51cto.com/sd/fe283">https://edu.51cto.com/sd/fe283</a> <br/>
+腾讯课堂：<a href="https://ke.qq.com/course/437844?tuin=1405e4a">https://ke.qq.com/course/437844?tuin=1405e4a</a><br/>
+淘宝教育：<a href="http://i.xue.taobao.com/detail.htm?spm=a2174.7765247.0.0.fu0bmj&courseId=114160">http://i.xue.taobao.com/detail.htm?spm=a2174.7765247.0.0.fu0bmj&courseId=114160</a><br/>
+
 
 
 # 课程简介
