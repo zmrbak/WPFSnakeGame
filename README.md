@@ -34,3 +34,9 @@ CSDN：<a href="https://edu.csdn.net/course/detail/25228">https://edu.csdn.net/c
 
 QQ群：831482711
 
+# 学员评价
+
+<li><img src="https://raw.githubusercontent.com/zmrbak/WPFSnakeGame/master/%E5%AD%A6%E5%91%98%E8%AF%84%E4%BB%B7/Screenshot_2019-09-15-22-21-16.png"><br/>
+<li><img src="https://raw.githubusercontent.com/zmrbak/WPFSnakeGame/master/%E5%AD%A6%E5%91%98%E8%AF%84%E4%BB%B7/Screenshot_2019-10-10-10-09-41.png"><br/>
+
+
