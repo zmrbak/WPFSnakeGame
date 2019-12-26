@@ -1,7 +1,6 @@
-# 腾讯课堂《WPF经典编程实例》示例代码
+# 腾讯课堂《WPF贪吃蛇》示例代码
 
 腾讯课堂：<a href="https://ke.qq.com/course/437844?tuin=1405e4a">https://ke.qq.com/course/437844</a><br/>
-
 
 
 # 课程简介
