@@ -1,10 +1,6 @@
-# 云课堂《WPF经典编程实例》示例代码
+# 腾讯课堂《WPF经典编程实例》示例代码
 
-网易云课堂：<a href="http://t.cn/Ai8SxMCL">http://t.cn/Ai8SxMCL</a> <br/>
-CSDN：<a href="https://edu.csdn.net/course/detail/25228">https://edu.csdn.net/course/detail/25228</a><br/>
-51CTO：<a hre4f="https://edu.51cto.com/sd/fe283">https://edu.51cto.com/sd/fe283</a> <br/>
-腾讯课堂：<a href="https://ke.qq.com/course/437844?tuin=1405e4a">https://ke.qq.com/course/437844?tuin=1405e4a</a><br/>
-淘宝教育：<a href="http://i.xue.taobao.com/detail.htm?spm=a2174.7765247.0.0.fu0bmj&courseId=114160">http://i.xue.taobao.com/detail.htm?spm=a2174.7765247.0.0.fu0bmj&courseId=114160</a><br/>
+腾讯课堂：<a href="https://ke.qq.com/course/437844?tuin=1405e4a">https://ke.qq.com/course/437844</a><br/>
 
 
 
@@ -32,7 +28,9 @@ CSDN：<a href="https://edu.csdn.net/course/detail/25228">https://edu.csdn.net/c
 
 # 交流
 
-QQ群：831482711
+学员QQ群：831482711  点击链接加入群聊【.NET/C#/WPF/Blend学员交流】：https://jq.qq.com/?_wv=1027&k=5a5hYLE
+
+游客QQ群：722055567  点击链接加入群聊【.NET/C#/WPF/Blend交流群】：https://jq.qq.com/?_wv=1027&k=5YwoGcw
 
 # 学员评价
 
